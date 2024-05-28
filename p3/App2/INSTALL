@@ -1,0 +1,47 @@
+# Manual de Instalción
+
+## Requisitos del Sistema
+- Unix/Linux con soporte para FIFOs (tuberías con nombre).
+- Compilador de C++ (g++).
+- Herramientas de compilación GNU Make.
+
+
+Instrucciones de Instalación
+----------------------------
+
+1. Clonar o descargar el repositorio:
+
+    ```
+    git clone <http://git.eps.ceu.es/ped/ped5>
+    cd <nombre-del-directorio>
+    ```
+
+2. Abre una terminal y navega hasta el directorio donde se encuentra el código fuente.
+
+3. Compilar el proyecto:
+este proyecto está codificado en C++ un lenguaje compilado, es decir, se debe transformar el código fuente escrito por el programador en un formato de código máquina específico para la arquitectura del ordenador donde se ejecutará el programa. Este proceso de transformación se realiza mediante un programa llamado compilador.
+
+    ```
+    make compilar
+    ```
+    
+
+4. Ejecución del proyecto:
+    
+    ```
+    make servidor
+    make cliente
+    ```
+
+4. Verificación de los nombres de procesos: Después de ejecutar el proyecto, puedes verificar los nombres de los procesos mediante el comando ps. Los procesos deben aparecer como cli3 y serv3.
+
+Solución de Problemas
+----------------------
+
+Si encuentras algún problema durante la instalación o la ejecución del sistema cliente-servidor, asegúrate de verificar lo siguiente:
+
+- Asegúrate de tener Python instalado en tu sistema y de que esté en tu PATH.
+- Verifica que los permisos de ejecución del archivo de código sean correctos.
+- Si el sistema cliente-servidor no funciona como se espera, asegúrate de revisar los mensajes de error y buscar soluciones en línea o preguntar en la comunidad.
+
+

@@ -1,0 +1,75 @@
+# Práctica 7. Sistema Cliente-Servidor de noticias (news) mediante sockets de Internet
+
+## Descripción
+
+Esta aplicación consiste en un sistema de cliente-servidor para la publicación de noticias (news) utilizando sockets de Internet. Los clientes pueden identificarse con un nombre único, publicar nuevos artículos, modificar artículos existentes, listar titulares de noticias y leer el contenido completo de una noticia.
+
+## Requisitos Necesarios
+
+Antes de ejecutar el sistema, asegúrate de tener instalado lo siguiente en tu máquina:
+
+- Python 3.x
+- SQLite3
+
+## Instalación
+
+1. Clona el repositorio del proyecto:
+    ```sh
+    git clone http://git.eps.ceu.es/ped/ped5
+    cd ped5/p7/news
+    ```
+
+## Ejecución del Servidor
+
+Para iniciar el servidor de noticias, ejecuta el siguiente comando:
+```sh
+python serv7.py
+```
+
+El servidor estará escuchando en `localhost` y en el puerto `8080` por defecto.
+
+## Ejecución del Cliente
+
+Para iniciar un cliente y conectarse al servidor, ejecuta el siguiente comando:
+```sh
+python cli7.py
+```
+
+El cliente pedirá que ingreses un nombre de usuario único.
+
+## Interacción con el Sistema
+
+1. Publicar un Artículo:
+   - Selecciona la opción para publicar una noticia.
+   - Ingresa el titular y el contenido del artículo cuando se te solicite.
+
+2. Modificar un Artículo:
+   - Selecciona la opción para modificar una noticia.
+   - Escoge de la lista de titulares y proporciona el contenido adicional.
+
+3. Listar Titulares:
+   - Selecciona la opción para listar todos los titulares de las noticias publicadas.
+
+4. Leer una Noticia Completa:
+   - Selecciona la opción para leer el contenido completo de una noticia.
+   - Escoge de la lista de titulares.
+
+5. Salir:
+   - Selecciona la opción para desconectarte del servidor y cerrar el cliente.
+
+## Contacto
+
+Para más información o asistencia, por favor contacta a:
+
+### Daniel Fernández López 
+  - GitHub: [DaniFL](https://github.com/DaniFL)
+  - Email: daniel.fernandezlopez@usp.ceu.es
+
+### Javier Martínez Cristóbal 
+  - GitHub: [Jmartinezc-rgb](https://github.com/Jmartinezc-rgb)
+  - Email: javier.martinezcristobal@usp.ceu.es
+
+### Jesús Marín Sánchez 
+  - GitHub: [jesusmarin8](https://github.com/jesusmarin8)
+  - Email: j.marin18@usp.ceu.es
+```

@@ -1,0 +1,27 @@
+## Práctica 6: Cliente-Servidor mediante sockets TCP de Internet
+
+## Introducción
+
+En esta práctica se ha implementado un cliente-servidor mediante sockets TCP de Internet:
+
+- Cliente-servidor de ficheros - `App1`
+
+- Cliente-servidor de fecha y hora - `App2`
+
+#### Dentro de cada directorio encontrará la documentación necesaria para interactuar con el programa.
+
+## Contacto
+Para más información o asistencia, por favor contacta a:
+- ### Daniel Fernández López 
+    - GitHub: [DaniFL](https://github.com/DaniFL)
+    - Email: daniel.fernandezlopez@usp.ceu.es
+
+- ### Javier Martínez Cristóbal 
+    - GitHub: [Jmartinezc-rgb](https://github.com/Jmartinezc-rgb)
+    - Email: javier.martinezcristobal@usp.ceu.es
+
+- ### Jesús Marín Sánchez 
+    - GitHub: [jesusmarin8](https://github.com/jesusmarin8)
+    - Email: j.marin18@usp.ceu.es
+
+

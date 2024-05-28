@@ -1,0 +1,127 @@
+# Arquitectura del Sistema de Servidor y Cliente de Noticias
+
+## 1. Introducción
+
+Este documento describe la arquitectura de un sistema cliente-servidor de noticias implementado en Python. El sistema permite a múltiples clientes conectarse a un servidor, publicar noticias, modificar noticias existentes, solicitar titulares y leer el contenido completo de una noticia.
+
+## 2. Componentes del Sistema
+
+El sistema consta de dos componentes principales:
+1. Servidor de Noticias
+2. Cliente de Noticias
+
+## 3. Descripción del Servidor de Noticias
+
+### 3.1. Clases y Métodos
+
+Clase `ServidorNoticias`
+
+- Atributos:
+  - `host`: Dirección del servidor (por defecto 'localhost').
+  - `port`: Puerto del servidor (por defecto 8080).
+  - `socket_servidor`: Socket del servidor.
+  - `clientes`: Diccionario para mantener las conexiones de los clientes.
+  - `running`: Bandera para controlar la ejecución del servidor.
+  - `conexion`: Conexión a la base de datos SQLite.
+  - `cursor`: Cursor para operar en la base de datos.
+
+- Métodos:
+  - `__init__(self, host='localhost', port=8080)`: Inicializa los atributos y la base de datos.
+  - `inicializar_base_datos(self)`: Crea la tabla `noticias` si no existe.
+  - `start(self)`: Inicia el servidor, acepta conexiones y maneja la entrada de datos.
+  - `manejar_cliente(self, socket_cliente, inputs)`: Maneja las solicitudes de los clientes.
+  - `publicar_noticia(self, datos)`: Publica una nueva noticia.
+  - `modificar_noticia(self, datos)`: Modifica una noticia existente.
+  - `enviar_titulares(self, socket_cliente)`: Envía titulares a un cliente.
+  - `listar_todos_titulares(self, socket_cliente)`: Lista todos los titulares.
+  - `enviar_noticia_completa(self, datos, socket_cliente)`: Envía el contenido completo de una noticia.
+  - `enviar_menu(self, socket_cliente)`: Envía el menú de opciones al cliente.
+  - `broadcast(self, mensaje)`: Envía un mensaje a todos los clientes conectados.
+  - `shutdown_server(self)`: Apaga el servidor de forma segura.
+
+### 3.2. Flujo de Operación
+
+1. **Inicio del Servidor:**
+   - El servidor se inicia y espera conexiones de clientes.
+   - Se configuran los sockets y se inicializa la base de datos.
+
+2. **Aceptación de Conexiones:**
+   - El servidor acepta nuevas conexiones de clientes y añade el socket del cliente a la lista de entradas.
+
+3. **Gestión de Solicitudes:**
+   - El servidor utiliza `select.select` para manejar múltiples conexiones simultáneamente.
+   - Según los datos recibidos, el servidor realiza las siguientes operaciones:
+     - `publicar_noticia`: Publica una nueva noticia en la base de datos.
+     - `modificar_noticia`: Modifica una noticia existente.
+     - `solicitar_titulares`: Envía los titulares disponibles al cliente.
+     - `listar_todos_titulares`: Lista todos los titulares de las noticias.
+     - `leer_noticia`: Envía el contenido completo de una noticia.
+
+4. **Apagado del Servidor:**
+   - Cuando el comando 'exit' es recibido desde la entrada estándar, el servidor cierra todas las conexiones y se apaga.
+
+## 4. Descripción del Cliente de Noticias
+
+### 4.1. Clases y Métodos
+
+Clase `ClienteNoticias`
+
+- Atributos:
+  - `host`: Dirección del servidor (por defecto 'localhost').
+  - `port`: Puerto del servidor (por defecto 8080).
+  - `socket_cliente`: Socket del cliente.
+  - `nombre`: Nombre del usuario.
+
+- Métodos:
+  - `__init__(self, host='localhost', port=8080)`: Inicializa los atributos del cliente.
+  - `start(self, nombre=None)`: Conecta el cliente al servidor y solicita el nombre de usuario.
+  - `enviar_articulo(self)`: Permite al cliente interactuar con el servidor para publicar, modificar, listar y leer noticias.
+  - `mostrar_menu(self)`: Solicita y muestra el menú de opciones desde el servidor.
+  - `desconectar(self)`: Cierra la conexión del cliente.
+
+### 4.2. Flujo de Operación
+
+1. **Inicio del Cliente:**
+   - El cliente se conecta al servidor y envía el nombre de usuario.
+
+2. **Interacción con el Servidor:**
+   - El cliente muestra un menú de opciones y espera la selección del usuario.
+   - Según la opción seleccionada, el cliente envía la solicitud correspondiente al servidor:
+     - `publicar`: Publica una nueva noticia.
+     - `modificar`: Modifica una noticia existente.
+     - `listar_todos_titulares`: Lista todos los titulares disponibles.
+     - `leer_noticia`: Lee el contenido completo de una noticia.
+
+3. **Desconexión del Cliente:**
+   - El cliente se desconecta del servidor cuando el usuario selecciona la opción de salir o cuando ocurre una interrupción.
+
+## 5. Base de Datos
+
+El sistema utiliza una base de datos SQLite para almacenar las noticias. La tabla `noticias` contiene las siguientes columnas:
+
+- `id`: Identificador único de la noticia (clave primaria, autoincremental).
+- `autor`: Nombre del autor de la noticia.
+- `titular`: Titular de la noticia.
+- `contenido`: Contenido completo de la noticia.
+
+## 6. Comunicación Cliente-Servidor
+
+La comunicación entre el cliente y el servidor se realiza mediante sockets TCP. Los mensajes se codifican en formato texto y siguen una estructura específica para identificar el tipo de operación:
+
+- `publicar:{titular}:{contenido}`
+- `modificar:{titular}:{contenido_adicional}`
+- `solicitar_titulares`
+- `listar_todos_titulares`
+- `leer_noticia:{titular}`
+- `menu`
+
+El servidor responde con mensajes codificados que contienen los resultados de las operaciones solicitadas por el cliente.
+
+## 7. Consideraciones de Seguridad
+
+- Reutilización de Direcciones:El servidor está configurado para reutilizar direcciones (`SO_REUSEADDR`).
+- Manejo de Errores:Se manejan excepciones comunes como `ConnectionResetError` y `ConnectionAbortedError` para mantener la estabilidad del servidor.
+- Cierre Seguro: El servidor cierra todas las conexiones activas y la base de datos de manera segura al apagarse.
+
+Esta arquitectura proporciona una base sólida para un sistema de noticias, permitiendo la fácil extensión y mantenimiento del código.
+

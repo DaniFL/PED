@@ -1,0 +1,62 @@
+# Proyecto Cliente-Servidor mediante FIFOs
+
+## Descripción
+Este proyecto implementa un sencillo sistema cliente-servidor utilizando FIFOs (tuberías con nombre) de Unix. El servidor espera el nombre de un archivo desde el cliente, lee el contenido del archivo y envía el contenido de vuelta al cliente. Si el archivo no se encuentra, el servidor envía un mensaje de error.
+
+## Estructura del Proyecto
+- serv3.py: Código fuente del servidor.
+- cli3.py: Código fuente del cliente.
+
+## Uso
+Para ejecutar el proyecto: 
+
+1. Inicializa el servidor: 
+
+    ```
+    make servidor
+    ````
+
+    Esto creará dos FIFOs en el directorio /tmp:
+
+    - /tmp/fifo_cli3_to_serv3
+    - /tmp/fifo_serv3_to_cli3
+
+    El servidor estará en espera de comandos del cliente.
+
+2. Inicializa el cliente en una terminal separada:
+    ```
+    make cliente
+    ```
+3. Interacción con el cliente:
+    - Introduce la ruta del archivo que deseas leer desde el servidor. 
+    - Si el archivo existe, el contenido será mostrado. 
+    - Si no, se mostrará un mensaje de error. 
+    - Para finalizar el cliente, introduce exit.
+
+## Comprobación de los Procesos
+Después de ejecutar el proyecto, puedes usar el siguiente comando para verificar los nombres de los procesos:
+```
+ps aux | grep 'cli3\|serv3'
+```
+
+## Dependencias
+- Unix/Linux con soporte para FIFOs.
+- GNU Make.
+- Python 3.x.
+
+## Notas
+Asegúrate de tener permisos adecuados para crear FIFOs en el directorio /tmp. Este proyecto está diseñado para una única interacción y no soporta múltiples clientes simultáneos.
+
+## Contacto
+Para más información o asistencia, por favor contacta a:
+- ### Daniel Fernández López 
+    - GitHub: [DaniFL](https://github.com/DaniFL)
+    - Email: daniel.fernandezlopez@usp.ceu.es
+
+- ### Javier Martínez Cristóbal 
+    - GitHub: [Jmartinezc-rgb](https://github.com/Jmartinezc-rgb)
+    - Email: javier.martinezcristobal@usp.ceu.es
+
+- ### Jesús Marín Sánchez 
+    - GitHub: [jesusmarin8](https://github.com/jesusmarin8)
+    - Email: j.marin18@usp.ceu.es

@@ -1,0 +1,94 @@
+# Cliente-Servidor mediante Sockets TCP de Internet
+
+## Descripción
+
+Este proyecto implementa un sencillo sistema cliente-servidor utilizando sockets TCP de Internet. El servidor responde con un mensaje indicando la hora en que recibió el mensaje del cliente.
+
+## Estructura del Proyecto
+- cli6.py: Codigo fuente del cliente
+- serv6.py: Codigo fuente del servidor
+- Makefile: Archivo para la compilación y ejecución del proyecto.
+
+## Uso
+Para ejecutar el proyecto, utiliza los siguientes comandos:
+
+1. make servidor
+
+2. make cliente 
+
+## Funcionamiento
+### Servidor:
+
+1. Iniciar el Servidor:
+
+El servidor se inicia y se vincula a una dirección IP y un puerto específicos.
+Utiliza el método socket() para crear un socket TCP y bind() para asociarlo a la dirección y puerto especificados.
+Luego, llama a listen() para comenzar a escuchar conexiones entrantes.
+
+2. Aceptar Conexiones:
+
+El servidor espera y acepta conexiones entrantes utilizando accept().
+Cuando se establece una conexión con un cliente, se crea un nuevo socket dedicado para esa conexión.
+
+3. Recibir y Procesar Mensajes:
+
+El servidor espera a recibir datos del cliente utilizando el método recv().
+Cuando recibe un mensaje, lo procesa según su lógica de negocio.
+En el caso de este proyecto, el servidor simplemente registra el mensaje recibido junto con la hora actual y envía una respuesta al cliente.
+
+4. Enviar Respuesta al Cliente:
+
+Después de procesar el mensaje, el servidor envía una respuesta al cliente utilizando el método send().
+La respuesta puede ser cualquier tipo de información, desde un simple mensaje de confirmación hasta datos procesados.
+
+5. Cerrar Conexiones:
+
+Después de enviar la respuesta, el servidor cierra la conexión con el cliente utilizando el método close().
+Esto libera los recursos asociados con esa conexión y permite al servidor aceptar nuevas conexiones entrantes.
+
+### Cliente:
+
+1. Iniciar el Cliente:
+
+El cliente se inicia y se conecta a la dirección IP y puerto del servidor utilizando el método connect().
+
+2. Enviar Mensaje al Servidor:
+
+El cliente envía un mensaje al servidor utilizando el método send().
+El mensaje puede ser cualquier tipo de información que el servidor esté configurado para procesar.
+
+3. Esperar Respuesta del Servidor:
+
+Después de enviar el mensaje, el cliente espera una respuesta del servidor utilizando el método recv().
+La respuesta puede contener información procesada por el servidor o simplemente una confirmación de que se recibió el mensaje.
+
+4. Procesar Respuesta del Servidor:
+
+Una vez que se recibe la respuesta, el cliente la procesa según sea necesario.
+En el caso de este proyecto, el cliente simplemente imprime la respuesta en la consola.
+
+5. Cerrar Conexión:
+
+Después de procesar la respuesta, el cliente cierra la conexión con el servidor utilizando el método close().
+Esto libera los recursos asociados con esa conexión y finaliza la comunicación con el servidor.
+
+## Comprobación de los Procesos
+Después de ejecutar el proyecto, puedes usar el siguiente comando para verificar los nombres de los procesos:
+```
+ps aux | grep 'cli6\|serv6'
+```
+
+## Contacto
+Para más información o asistencia, por favor contacta a:
+- ### Daniel Fernández López 
+    - GitHub: [DaniFL](https://github.com/DaniFL)
+    - Email: daniel.fernandezlopez@usp.ceu.es
+
+- ### Javier Martínez Cristóbal 
+    - GitHub: [Jmartinezc-rgb](https://github.com/Jmartinezc-rgb)
+    - Email: javier.martinezcristobal@usp.ceu.es
+
+- ### Jesús Marín Sánchez 
+    - GitHub: [jesusmarin8](https://github.com/jesusmarin8)
+    - Email: j.marin18@usp.ceu.es
+

@@ -1,0 +1,38 @@
+# Manual de Instalción
+
+## Requisitos del Sistema
+- Unix/Linux con soporte para pipes y procesos.
+- Python 3.x instalado.
+- Herramientas de compilación GNU Make.
+
+El sistema cliente-servidor se ejecuta en entornos Unix compatibles. Asegúrate de tener instalado Python en tu sistema.
+
+Instrucciones de Instalación
+----------------------------
+
+1. Clonar o descargar el repositorio:
+
+    ```
+    git clone <http://git.eps.ceu.es/ped/ped5>
+    cd <nombre-del-directorio>
+    ```
+
+2. Abre una terminal y navega hasta el directorio donde se encuentra el código fuente.
+
+3. Ejecución del proyecto:
+    ```
+    make run
+    ```
+
+4. Verificación de los nombres de procesos: Después de ejecutar el proyecto, puedes verificar los nombres de los procesos mediante el comando ps (los procesos deben aparecer como cli2 y serv2).
+
+Solución de Problemas
+----------------------
+
+Si encuentras algún problema durante la instalación o la ejecución del sistema cliente-servidor, asegúrate de verificar lo siguiente:
+
+- Asegúrate de tener Python instalado en tu sistema y de que esté en tu PATH.
+- Verifica que los permisos de ejecución del archivo de código sean correctos.
+- Si el sistema cliente-servidor no funciona como se espera, asegúrate de revisar los mensajes de error y buscar soluciones en línea o preguntar en la comunidad.
+
+

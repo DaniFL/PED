@@ -1,0 +1,54 @@
+# Cliente-Servidor mediante sockets UDP de Internet
+
+## Descripción
+
+Este proyecto implementa  un sencillo sistema cliente-servidor utilizando sockets UDP de Internet (sockets UDP, es decir, no orientados a conexión, del dominio PF_INET). El servidor envía el contenido de un archivo solicitado por el cliente. Si el archivo no existe, el servidor informa al cliente.
+
+## Estructura del Proyecto
+- cli5.py: Codigo fuente del cliente
+- serv5.py: Codigo fuente del servidor
+- Makefile: Archivo para la compilación y ejecución del proyecto.
+
+## Uso
+Para ejecutar el proyecto, utiliza los siguientes comandos:
+
+1º: make servidor (ingresar el puerto deseado por el que el servidor escuchará las peticiones del cliente)
+
+2º: make cliente (ingresar dirección IP del servidor y puerto escrito en el servidor. Escribir nombre del fichero existente en la carpeta p5 (como hola.txt) o crear uno anteriormente.)
+
+3º: escribir "salir" en cliente si desea finalizar.
+
+## Funcionamiento
+### Servidor (serv5.py)
+
+ Escucha en el puerto especificado para recibir rutas de archivos desde los clientes, lee el contenido de los archivos solicitados y envía el contenido de vuelta al cliente. Si el archivo no se encuentra, envía un mensaje de error.
+
+ ### Cliente (cli5.py)
+
+ Solicita al usuario la dirección IP y el puerto del servidor, luego permite al usuario enviar rutas de archivos al servidor, recibe el contenido de los archivos (o un mensaje de error) y lo muestra en la consola.
+
+## Configuración del Puerto del Servidor
+El servidor permite configurar el puerto en el que escucha las solicitudes. Al iniciar el servidor, se solicitará al usuario que ingrese el puerto deseado.
+
+## Personalización de los Sockets UDP
+Los sockets UDP utilizados en este proyecto pueden personalizarse para evitar colisiones con otros grupos de prácticas. La personalización se puede realizar modificando el código fuente en los archivos serv5.py y cli5.py.
+
+## Comprobación de los Procesos
+Después de ejecutar el proyecto, puedes usar el siguiente comando para verificar los nombres de los procesos:
+```
+ps aux | grep 'cli5\|serv5'
+```
+
+## Contacto
+Para más información o asistencia, por favor contacta a:
+- ### Daniel Fernández López 
+    - GitHub: [DaniFL](https://github.com/DaniFL)
+    - Email: daniel.fernandezlopez@usp.ceu.es
+
+- ### Javier Martínez Cristóbal 
+    - GitHub: [Jmartinezc-rgb](https://github.com/Jmartinezc-rgb)
+    - Email: javier.martinezcristobal@usp.ceu.es
+
+- ### Jesús Marín Sánchez 
+    - GitHub: [jesusmarin8](https://github.com/jesusmarin8)
+    - Email: j.marin18@usp.ceu.es

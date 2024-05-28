@@ -1,0 +1,50 @@
+# Proyecto Cliente-Servidor mediante Pipes
+
+## Descripción
+Este proyecto implementa un sencillo sistema cliente-servidor utilizando pipes de Unix. El servidor envía la fecha y hora actual al cliente, que muestra la información recibida.
+
+## Estructura del Proyecto
+- cliente-servidor.py: Código fuente principal de la aplicación.
+- Makefile: Archivo para la compilación y ejecución del proyecto.
+
+## Uso
+Para ejecutar el proyecto, utiliza el siguiente comando:
+```
+make run
+```
+No es necesaria la compilación previa del código, ya que está codificado en Python que es un lenguaje interpretado, lo que significa que el programa se ejecuta línea por línea directamente por un programa llamado intérprete. 
+
+## Funcionamiento
+1. El servidor se ejecuta y envía la fecha y hora actual al cliente mediante una pipe.
+2. El cliente recibe la fecha y hora y la muestra en la salida estándar.
+3. Ambos procesos se terminan después de una única interacción.
+
+### Comprobación de los Procesos
+Después de ejecutar el proyecto, puedes usar el siguiente comando para verificar los nombres de los procesos:
+```
+ps aux | grep 'cli2\|serv2'
+````
+
+## Dependencias
+
+- Python 3.x
+- Unix/Linux con soporte para pipes y procesos.
+- GNU Make
+
+## Notas
+Asegúrate de tener permisos adecuados para ejecutar scripts y crear pipes en tu sistema.
+Este proyecto está diseñado para una única interacción y no soporta múltiples clientes simultáneos.
+
+## Contacto
+Para más información o asistencia, por favor contacta a:
+- ### Daniel Fernández López 
+    - GitHub: [DaniFL](https://github.com/DaniFL)
+    - Email: daniel.fernandezlopez@usp.ceu.es
+
+- ### Javier Martínez Cristóbal 
+    - GitHub: [Jmartinezc-rgb](https://github.com/Jmartinezc-rgb)
+    - Email: javier.martinezcristobal@usp.ceu.es
+
+- ### Jesús Marín Sánchez 
+    - GitHub: [jesusmarin8](https://github.com/jesusmarin8)
+    - Email: j.marin18@usp.ceu.es

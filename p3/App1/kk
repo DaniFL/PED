@@ -1,0 +1,2 @@
+g++ -o cli2_app1 cli2_app1.cpp
+g++ -o serv2_app1 serv2_app1.cpp

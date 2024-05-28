@@ -1,0 +1,26 @@
+# Práctica 3: Cliente-Servidor mediante FIFOs
+
+## Introducción
+En esta práctica se han implementado ambas aplicaciones utilizando dos lenguajes de programación (C++ y Python). 
+
+## Estructura 
+- ### App1: cliente-servidor de ficheros (C++)
+- ### App2: cliente-servidor de fecha y hora (C++)
+- ### Python/App1: cliente-servidor de ficheros (Python)
+
+### Nota: 
+Dentro de cada directorio encontrará el manual de instalación y uso de cada programa. 
+
+## Contacto
+Para más información o asistencia, por favor contacta a:
+- ### Daniel Fernández López 
+    - GitHub: [DaniFL](https://github.com/DaniFL)
+    - Email: daniel.fernandezlopez@usp.ceu.es
+
+- ### Javier Martínez Cristóbal 
+    - GitHub: [Jmartinezc-rgb](https://github.com/Jmartinezc-rgb)
+    - Email: javier.martinezcristobal@usp.ceu.es
+
+- ### Jesús Marín Sánchez 
+    - GitHub: [jesusmarin8](https://github.com/jesusmarin8)
+    - Email: j.marin18@usp.ceu.es

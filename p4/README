@@ -1,0 +1,70 @@
+# Practica 4: Cliente-Servidor mediante sockets UDS
+
+## Descripción
+Este proyecto implementa un sencillo sistema cliente-servidor 
+utilizando sockets UDS (sockets locales del dominio Unix).
+El servidor envía la fecha y hora actual al cliente, 
+que muestra la información recibida.
+
+## Estructura del Proyecto
+- cli4.py: Código fuente del cliente.
+- serv4.py: Código fuente del servidor.
+- Makefile: Archivo para la compilación y ejecución del 
+proyecto.
+
+## Uso
+
+Para compilar y ejecutar el proyecto, utiliza los siguientes
+comandos (a ser posible en Linux):
+
+1º: Abrir dos ventanas separadas de CMD (terminales)
+
+2º: make servidor (en una de las ventanas)
+
+3º: make cliente (en la ventana restante)
+
+##Funcionamiento
+
+### Servidor (serv4.py)
+
+- El servidor utiliza socket.AF_UNIX y socket.SOCK_STREAM para indicar que es un 
+socket UDS en modo de flujo (stream).
+- El servidor espera a que el cliente se conecte.
+- El servidor recibe  una cadena que representa la fecha y hora.
+- El servidor espera nuevas conexiones de clientes.
+
+### Cliente (cli4.py)
+
+- El cliente usa socket.AF_UNIX y socket.SOCK_STREAM para crear un socket UDS en 
+modo de flujo.
+- El cliente asociar el socket a la ruta especificada, y habilita el servidor para 
+aceptar conexiones.
+- El cliente muestra la fecha y hora en la salida estándar.
+
+## Comprobación de los Procesos
+Después de ejecutar el proyecto, puedes usar el siguiente comando para
+verificar los nombres de los procesos:
+```
+ps aux | grep 'cli4\|serv4'
+```
+## Configuración de la Dirección del Socket
+
+La dirección del socket UDS se puede configurar modificando la variable socket_path en los archivos serv4.py y cli4.py. Asegúrate de que ambos archivos utilicen la misma ruta para el socket.
+
+## Notas
+Asegúrate de tener permisos adecuados para crear sockets UDS en el directorio /tmp.
+Este proyecto está diseñado para permitir múltiples conexiones de clientes, pero no conexiones simultáneas.
+
+## Contacto
+Para más información o asistencia, por favor contacta a:
+- ### Daniel Fernández López 
+    - GitHub: [DaniFL](https://github.com/DaniFL)
+    - Email: daniel.fernandezlopez@usp.ceu.es
+
+- ### Javier Martínez Cristóbal 
+    - GitHub: [Jmartinezc-rgb](https://github.com/Jmartinezc-rgb)
+    - Email: javier.martinezcristobal@usp.ceu.es
+
+- ### Jesús Marín Sánchez 
+    - GitHub: [jesusmarin8](https://github.com/jesusmarin8)
+    - Email: j.marin18@usp.ceu.es

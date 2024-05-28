@@ -1,0 +1,68 @@
+# Proyecto Cliente-Servidor mediante FIFOs
+
+## Descripción
+Este proyecto implementa un sencillo sistema cliente-servidor utilizando FIFOs (tuberías con nombre) de Unix. El servidor envía la fecha y hora actual al cliente, que muestra la información recibida.
+
+## Estructura del Proyecto
+- serv3_app1.cpp: Código fuente del servidor.
+- cli3_app1.cpp: Código fuente del cliente.
+- Makefile: Archivo para la compilación y ejecución del proyecto.
+
+## Uso
+Para compilar y ejecutar el proyecto, utiliza los siguientes comandos:
+
+- Primero de todo, compilar el programa: 
+    ```
+    make compilar
+    ```
+- A continuación inicializa el servidor: 
+    ```
+    make servidor
+    ```
+- Finalmente, inicializa el cliente: 
+    ```
+    make cliente
+    ```
+
+## Funcionamiento
+
+### Servidor (serv3_app2.cpp):
+
+- El servidor crea una FIFO (tubería con nombre) en el directorio /tmp.
+- El servidor espera a que el cliente se conecte.
+- El servidor obtiene la fecha y hora actual y la envía al cliente a través de la FIFO.
+- El servidor espera nuevas conexiones de clientes.
+
+### Cliente (cli3_app2.cpp):
+
+- El cliente se conecta a la FIFO creada por el servidor.
+- El cliente lee la fecha y hora enviada por el servidor.
+- El cliente muestra la fecha y hora en la salida estándar.
+
+## Comprobación de los Procesos
+Después de ejecutar el proyecto, puedes usar el siguiente comando para verificar los nombres de los procesos:
+```
+ps aux | grep 'cli3\|serv3'
+```
+
+## Dependencias
+- Unix/Linux con soporte para FIFOs.
+- Compilador de C++ (g++).
+- GNU Make.
+
+## Notas
+Asegúrate de tener permisos adecuados para crear FIFOs en el directorio /tmp. Este proyecto está diseñado para una única interacción y no soporta múltiples clientes simultáneos.
+
+## Contacto
+Para más información o asistencia, por favor contacta a:
+- ### Daniel Fernández López 
+    - GitHub: [DaniFL](https://github.com/DaniFL)
+    - Email: daniel.fernandezlopez@usp.ceu.es
+
+- ### Javier Martínez Cristóbal 
+    - GitHub: [Jmartinezc-rgb](https://github.com/Jmartinezc-rgb)
+    - Email: javier.martinezcristobal@usp.ceu.es
+
+- ### Jesús Marín Sánchez 
+    - GitHub: [jesusmarin8](https://github.com/jesusmarin8)
+    - Email: j.marin18@usp.ceu.es

@@ -1,0 +1,25 @@
+## Práctica 7: Sistema Cliente-Servidor mediante sockets de Internet
+
+## Introducción
+
+En esta práctica se intenta realizar un sistema cliente-servidor de una aplicación de news utilizando sockets de Internet (sockets del dominio PF_INET). Se aconseja que se utilicen sockets TCP de Internet (orientados a conexión)
+
+El programa se encuentra alojado en el directorio `news/`.
+
+#### Dentro del directorio especificado encontrará la documentación necesaria para interactuar con el programa.
+
+## Contacto
+Para más información o asistencia, por favor contacta a:
+- ### Daniel Fernández López 
+    - GitHub: [DaniFL](https://github.com/DaniFL)
+    - Email: daniel.fernandezlopez@usp.ceu.es
+
+- ### Javier Martínez Cristóbal 
+    - GitHub: [Jmartinezc-rgb](https://github.com/Jmartinezc-rgb)
+    - Email: javier.martinezcristobal@usp.ceu.es
+
+- ### Jesús Marín Sánchez 
+    - GitHub: [jesusmarin8](https://github.com/jesusmarin8)
+    - Email: j.marin18@usp.ceu.es
+
+

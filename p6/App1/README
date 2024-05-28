@@ -1,0 +1,107 @@
+# Cliente-Servidor mediante Sockets TCP de Internet
+
+## Descripción
+
+Este proyecto implementa un sencillo sistema cliente-servidor utilizando sockets TCP de Internet. El servidor responde con el contenido de un archivo cuando el cliente envía la ruta del archivo.
+
+## Estructura del Proyecto
+- cli6.py: Codigo fuente del cliente
+- serv6.py: Codigo fuente del servidor
+- Makefile: Archivo para la compilación y ejecución del proyecto.
+
+## Uso
+Para ejecutar el proyecto, utiliza los siguientes comandos:
+
+1. make servidor
+
+2. make cliente 
+
+## Funcionamiento
+El sistema cliente-servidor con sockets TCP de Internet permite la comunicación bidireccional entre un cliente y un servidor a través de una conexión TCP establecida.
+
+### Servidor:
+
+1. Inicio del Servidor:
+
+El servidor se inicia y se vincula a una dirección IP y un puerto específicos utilizando la función socket(), bind() y listen().
+
+2. Espera de Conexiones:
+
+El servidor espera a que los clientes se conecten utilizando el método accept().
+La función accept() bloquea la ejecución hasta que se establece una conexión entrante.
+
+3. Atención de Clientes:
+
+Una vez que se establece la conexión con un cliente, se crea un nuevo socket dedicado a esa conexión.
+El servidor puede atender a múltiples clientes de forma simultánea utilizando hilos o procesos.
+
+ 4. Recepción de Datos:
+
+El servidor recibe datos del cliente utilizando el método recv() en el socket dedicado a esa conexión.
+Los datos pueden ser cualquier información enviada por el cliente, como mensajes o solicitudes de archivos.
+
+5. Procesamiento de Datos:
+
+Después de recibir los datos, el servidor procesa la información según la lógica de la aplicación.
+En este caso, el servidor espera recibir la ruta de un archivo del cliente y responde enviando el contenido del archivo solicitado.
+
+6. Envío de Respuestas:
+
+Una vez procesados los datos, el servidor envía una respuesta al cliente utilizando el método send() en el socket dedicado a esa conexión.
+La respuesta puede contener el contenido solicitado o mensajes de error si algo salió mal durante el procesamiento.
+
+7. Cierre de la Conexión:
+
+Después de enviar la respuesta, el servidor cierra la conexión utilizando el método close() en el socket dedicado a esa conexión.
+El servidor vuelve a esperar nuevas conexiones o sigue atendiendo a otros clientes.
+
+### Cliente:
+
+1. Inicio del Cliente:
+
+El cliente se inicia y se prepara para establecer una conexión con el servidor utilizando la función socket() y connect().
+
+2. Establecimiento de la Conexión:
+
+El cliente se conecta al servidor especificando la dirección IP y el puerto del servidor utilizando el método connect().
+
+3. Envío de Datos:
+
+Después de establecer la conexión, el cliente envía datos al servidor utilizando el método sendall() en el socket de conexión.
+En este caso, el cliente envía la ruta completa del archivo que desea obtener del servidor.
+
+4. Recepción de Respuestas:
+
+Después de enviar los datos, el cliente espera recibir una respuesta del servidor utilizando el método recv() en el socket de conexión.
+La respuesta puede contener el contenido del archivo solicitado o mensajes de error si el archivo no existe.
+
+5. Procesamiento de Respuestas:
+
+Una vez que se recibe la respuesta, el cliente procesa la información según sea necesario.
+En este caso, el cliente imprime el contenido del archivo recibido o mensajes de error en la consola.
+
+6. Cierre de la Conexión:
+
+Después de procesar la respuesta, el cliente cierra la conexión utilizando el método close() en el socket de conexión.
+El cliente termina su ejecución o puede seguir enviando más solicitudes al servidor.
+
+## Comprobación de los Procesos
+Después de ejecutar el proyecto, puedes usar el siguiente comando para verificar los nombres de los procesos:
+```
+ps aux | grep 'cli6\|serv6'
+```
+
+## Contacto
+Para más información o asistencia, por favor contacta a:
+- ### Daniel Fernández López 
+    - GitHub: [DaniFL](https://github.com/DaniFL)
+    - Email: daniel.fernandezlopez@usp.ceu.es
+
+- ### Javier Martínez Cristóbal 
+    - GitHub: [Jmartinezc-rgb](https://github.com/Jmartinezc-rgb)
+    - Email: javier.martinezcristobal@usp.ceu.es
+
+- ### Jesús Marín Sánchez 
+    - GitHub: [jesusmarin8](https://github.com/jesusmarin8)
+    - Email: j.marin18@usp.ceu.es
+

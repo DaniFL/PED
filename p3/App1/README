@@ -1,0 +1,68 @@
+# Proyecto Cliente-Servidor mediante FIFOs
+
+## Descripción
+Este proyecto implementa un sencillo sistema cliente-servidor utilizando FIFOs (tuberías con nombre) de Unix. El servidor envía el contenido de un archivo solicitado por el cliente. Si el archivo no existe, el servidor informa al cliente.
+
+## Estructura del Proyecto
+- serv3_app1.cpp: Código fuente del servidor.
+- cli3_app1.cpp: Código fuente del cliente.
+- Makefile: Archivo para la compilación y ejecución del proyecto.
+
+## Uso
+Para compilar y ejecutar el proyecto, utiliza los siguientes comandos:
+
+- Primero de todo, compilar el programa: 
+    ```
+    make compilar
+    ```
+- A continuación inicializa el servidor: 
+    ```
+    make servidor
+    ```
+- Finalmente, inicializa el cliente: 
+    ```
+    make cliente
+    ```
+
+## Funcionamiento
+### Servidor (serv3_app1.cpp):
+
+El servidor espera la solicitud del cliente para un archivo específico.
+Si el archivo existe, envía su contenido al cliente.
+Si el archivo no existe, informa al cliente que el archivo no se encontró.
+El servidor continúa esperando solicitudes hasta que el cliente envíe la palabra "salir".
+
+### Cliente (cli3_app1.cpp):
+
+El cliente solicita al usuario el nombre de un archivo.
+Envía el nombre del archivo al servidor.
+Recibe la respuesta del servidor y la muestra en la salida estándar.
+Repite el proceso hasta que el usuario ingrese la palabra "salir".
+
+## Comprobación de los Procesos
+Después de ejecutar el proyecto, puedes usar el siguiente comando para verificar los nombres de los procesos:
+```
+ps aux | grep 'cli3\|serv3'
+```
+
+## Dependencias
+- Unix/Linux con soporte para FIFOs.
+- Compilador de C++ (g++).
+- GNU Make.
+
+## Notas
+Asegúrate de tener permisos adecuados para crear FIFOs en el directorio /tmp. Este proyecto está diseñado para una única interacción y no soporta múltiples clientes simultáneos.
+
+## Contacto
+Para más información o asistencia, por favor contacta a:
+- ### Daniel Fernández López 
+    - GitHub: [DaniFL](https://github.com/DaniFL)
+    - Email: daniel.fernandezlopez@usp.ceu.es
+
+- ### Javier Martínez Cristóbal 
+    - GitHub: [Jmartinezc-rgb](https://github.com/Jmartinezc-rgb)
+    - Email: javier.martinezcristobal@usp.ceu.es
+
+- ### Jesús Marín Sánchez 
+    - GitHub: [jesusmarin8](https://github.com/jesusmarin8)
+    - Email: j.marin18@usp.ceu.es
